@@ -9,38 +9,38 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
 endobj
 4 0 obj
-<< /Length 2725 >>
+<< /Length 2417 >>
 stream
 BT /F2 20 Tf 56 770 Td (MUHAMAD NAUFAL BURHANUDDIN BALIT) Tj ET
-BT /F1 11 Tf 56 750 Td (Web Developer & Digital Creator  |  Purworejo, Central Java, Indonesia) Tj ET
-BT /F1 10 Tf 56 734 Td (Email: mainkode4@gmail.com   |   GitHub: github.com/MainKode-Indonesia   |   Projects: mainkode.nafeka.my.id) Tj ET
+BT /F1 11 Tf 56 750 Td (Founder & CEO of Nafeka  |  Purworejo, Central Java, Indonesia) Tj ET
+BT /F1 10 Tf 56 734 Td (Email: mainkode4@gmail.com   |   GitHub: github.com/MainKode-Indonesia   |   Portal: nafeka.my.id) Tj ET
 0.8 w 0.75 0.78 0.84 RG 56 722 m 539 722 l S
-BT /F2 12 Tf 56 698 Td (PROFILE) Tj ET
-BT /F1 10 Tf 56 680 Td (Independent full-stack web developer and UI engineer focused on crafting fast, responsive,) Tj ET
-BT /F1 10 Tf 56 666 Td (and accessible web applications. Experienced in modern React, TypeScript, Astro static) Tj ET
-BT /F1 10 Tf 56 652 Td (architecture, cloud databases, and headless CMS workflows.) Tj ET
+BT /F2 12 Tf 56 698 Td (EXECUTIVE SUMMARY) Tj ET
+BT /F1 10 Tf 56 680 Td (Founder & CEO of Nafeka, building a digital ecosystem of software, technology, and products) Tj ET
+BT /F1 10 Tf 56 666 Td (while staying hands-on in development. Background in Computer Science \(Informatics\) and) Tj ET
+BT /F1 10 Tf 56 652 Td (published data research \(Naive Bayes & K-Means\) paired with full-stack product execution.) Tj ET
 0.8 w 0.75 0.78 0.84 RG 56 638 m 539 638 l S
-BT /F2 12 Tf 56 616 Td (TECHNICAL SKILLS) Tj ET
-BT /F2 10 Tf 56 598 Td (Frontend & Interface:) Tj ET
-BT /F1 10 Tf 175 598 Td (React 19, TypeScript, Astro, Tailwind CSS, Vite 6, HTML5, CSS3) Tj ET
-BT /F2 10 Tf 56 582 Td (Backend & Cloud Data:) Tj ET
-BT /F1 10 Tf 175 582 Td (Node.js, Express, Firebase Auth, Cloud Firestore, Directus CMS, MySQL, PHP) Tj ET
-BT /F2 10 Tf 56 566 Td (Infrastructure & SEO:) Tj ET
-BT /F1 10 Tf 175 566 Td (Git, GitHub, Nginx, Technical SEO, Static Site Generation, Responsive Design) Tj ET
+BT /F2 12 Tf 56 616 Td (NAFEKA ECOSYSTEM) Tj ET
+BT /F2 10 Tf 56 598 Td (Nafeka \(nafeka.my.id\):) Tj ET
+BT /F1 10 Tf 175 598 Td (Parent brand, corporate identity, and digital ecosystem hub.) Tj ET
+BT /F2 10 Tf 56 582 Td (MainKode \(mainkode.nafeka.my.id\):) Tj ET
+BT /F1 10 Tf 215 582 Td (Engineering showcase and software product lab.) Tj ET
+BT /F2 10 Tf 56 566 Td (KataKode \(blog.nafeka.my.id\):) Tj ET
+BT /F1 10 Tf 205 566 Td (Technology blog and programming knowledge-sharing publication.) Tj ET
 0.8 w 0.75 0.78 0.84 RG 56 550 m 539 550 l S
-BT /F2 12 Tf 56 528 Td (SELECTED WORK & PROJECT ARCHIVE) Tj ET
-BT /F2 11 Tf 56 508 Td (MainKode — Portfolio & Project Showcase Platform \(mainkode.nafeka.my.id\)) Tj ET
-BT /F1 10 Tf 56 493 Td (Built with Astro, Tailwind CSS, TypeScript, and Directus CMS using Static Site Generation.) Tj ET
-BT /F1 10 Tf 56 479 Td (Serves as the central showcase for all published software projects, live demos, and repositories:) Tj ET
-BT /F1 10 Tf 68 461 Td (- GameVault \(game.nafeka.my.id\): Digital game storefront with React 19, Express & Firebase.) Tj ET
-BT /F1 10 Tf 68 446 Td (- KasirKu \(kasir.nafeka.my.id\): Multi-branch cloud POS synced via Firestore & Firebase Auth.) Tj ET
-BT /F1 10 Tf 68 431 Td (- KataKode \(blog.nafeka.my.id\): Technical blog & programming publication optimized for SEO.) Tj ET
-BT /F1 10 Tf 68 416 Td (- Nafeka Kreasi Nusantara \(nafeka.my.id\): Official brand hub & digital ecosystem portal.) Tj ET
-0.8 w 0.75 0.78 0.84 RG 56 400 m 539 400 l S
-BT /F2 12 Tf 56 378 Td (ENGINEERING PRINCIPLES) Tj ET
-BT /F1 10 Tf 56 360 Td (1. Design clarity: Structured typography, high-contrast dark/light modes, mobile-first ergonomics.) Tj ET
-BT /F1 10 Tf 56 345 Td (2. Modular architecture: Type-safe full-stack codebases and real-time cloud synchronization.) Tj ET
-BT /F1 10 Tf 56 330 Td (3. Open sharing: Public repositories and technical documentation for the developer community.) Tj ET
+BT /F2 12 Tf 56 528 Td (PRODUCTS & REPOSITORIES) Tj ET
+BT /F1 10 Tf 56 508 Td (- KasirKu \(kasir.nafeka.my.id\): Cloud POS for multi-branch retail via Firestore & Firebase Auth.) Tj ET
+BT /F1 10 Tf 56 492 Td (- GameVault \(game.nafeka.my.id\): Digital storefront with React 19, Express & Firebase.) Tj ET
+BT /F1 10 Tf 56 476 Td (- MainKode Showcase \(mainkode.nafeka.my.id\): Astro SSG + Directus CMS headless platform.) Tj ET
+BT /F1 10 Tf 56 460 Td (- KataKode Blog \(blog.nafeka.my.id\): Editorial tech publication tuned for Technical SEO.) Tj ET
+0.8 w 0.75 0.78 0.84 RG 56 444 m 539 444 l S
+BT /F2 12 Tf 56 422 Td (TECHNICAL STRENGTHS) Tj ET
+BT /F2 10 Tf 56 404 Td (Frontend & UI:) Tj ET
+BT /F1 10 Tf 165 404 Td (React 19, TypeScript, Astro, Tailwind CSS, Vite 6, HTML5 & CSS3) Tj ET
+BT /F2 10 Tf 56 388 Td (Backend & Cloud:) Tj ET
+BT /F1 10 Tf 165 388 Td (Node.js, Express, Firebase Auth, Cloud Firestore, Directus CMS, MySQL, PHP) Tj ET
+BT /F2 10 Tf 56 372 Td (Infrastructure:) Tj ET
+BT /F1 10 Tf 165 372 Td (Git, GitHub, Nginx, Technical SEO, Static Site Generation) Tj ET
 endstream
 endobj
 5 0 obj
@@ -56,10 +56,10 @@ xref
 0000000058 00000 n 
 0000000115 00000 n 
 0000000251 00000 n 
-0000003028 00000 n 
-0000003098 00000 n 
+0000002720 00000 n 
+0000002790 00000 n 
 trailer
 << /Size 7 /Root 1 0 R >>
 startxref
-3173
+2865
 %%EOF

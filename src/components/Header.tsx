@@ -1,6 +1,7 @@
 import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useState } from 'react';
 import type { Language } from '../data/projects';
+import { useActiveSection } from '../hooks/useActiveSection';
 
 interface HeaderProps {
   theme: 'dark' | 'light';
@@ -10,22 +11,24 @@ interface HeaderProps {
 }
 
 const NAV_LINKS: Array<{ href: string; label: Record<Language, string> }> = [
-  { href: '#tentang', label: { id: 'Tentang Saya', en: 'About' } },
-  { href: '#keahlian', label: { id: 'Keahlian', en: 'Skills' } },
-  { href: '#proyek', label: { id: 'Proyek', en: 'Projects' } },
-  { href: '#kontak', label: { id: 'Kontak', en: 'Contact' } },
+  { href: '#about', label: { en: 'About', id: 'Tentang' } },
+  { href: '#ecosystem', label: { en: 'Ecosystem', id: 'Ekosistem' } },
+  { href: '#projects', label: { en: 'Projects', id: 'Proyek' } },
+  { href: '#journey', label: { en: 'Journey', id: 'Perjalanan' } },
+  { href: '#contact', label: { en: 'Contact', id: 'Kontak' } },
 ];
 
 export default function Header({ theme, onToggleTheme, lang, onChangeLang }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const activeHref = useActiveSection();
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-slate-50/90 backdrop-blur-md dark:border-white/10 dark:bg-[#080B12]/90">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:gap-8 lg:px-10">
         {/* Zone 1: Single-line Brand Wordmark */}
         <a
-          href="#beranda"
-          className="font-display max-w-[175px] truncate text-base font-bold tracking-tight text-slate-900 transition-colors hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:text-slate-100 dark:hover:text-blue-400 sm:max-w-[260px] lg:max-w-none sm:text-lg whitespace-nowrap shrink-0"
+          href="#hero"
+          className="font-display max-w-[175px] truncate text-base font-bold tracking-tight text-slate-900 transition-colors hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:text-slate-100 dark:hover:text-blue-400 sm:max-w-[240px] lg:max-w-none sm:text-lg whitespace-nowrap shrink-0"
           title="Muhamad Naufal Burhanuddin Balit"
         >
           Muhamad Naufal Burhanuddin Balit
@@ -36,15 +39,23 @@ export default function Header({ theme, onToggleTheme, lang, onChangeLang }: Hea
           aria-label={lang === 'id' ? 'Navigasi utama' : 'Primary navigation'}
           className="hidden md:flex items-center gap-6 lg:gap-7"
         >
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-slate-600 underline-offset-8 transition-colors duration-150 hover:text-slate-900 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:text-slate-300 dark:hover:text-white whitespace-nowrap shrink-0"
-            >
-              {link.label[lang]}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = activeHref === link.href;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? 'location' : undefined}
+                className={`text-sm font-medium underline-offset-8 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 whitespace-nowrap shrink-0 ${
+                  isActive
+                    ? 'text-blue-600 underline decoration-2 decoration-blue-600 dark:text-blue-400 dark:decoration-blue-400'
+                    : 'text-slate-600 hover:text-slate-900 hover:underline dark:text-slate-300 dark:hover:text-white'
+                }`}
+              >
+                {link.label[lang]}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Zone 3: Language Switcher + Primary Action / Mobile Trigger */}
@@ -54,19 +65,6 @@ export default function Header({ theme, onToggleTheme, lang, onChangeLang }: Hea
             aria-label={lang === 'id' ? 'Pilih bahasa' : 'Select language'}
             className="inline-flex items-center rounded-lg border border-slate-200 bg-white p-0.5 dark:border-white/10 dark:bg-[#101521] shrink-0"
           >
-            <button
-              type="button"
-              onClick={() => onChangeLang('id')}
-              aria-pressed={lang === 'id'}
-              aria-label="Bahasa Indonesia"
-              className={`inline-flex min-h-8 items-center justify-center rounded-md px-2.5 py-1 text-xs font-semibold transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 whitespace-nowrap shrink-0 ${
-                lang === 'id'
-                  ? 'bg-blue-600 text-white'
-                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
-              }`}
-            >
-              ID
-            </button>
             <button
               type="button"
               onClick={() => onChangeLang('en')}
@@ -80,10 +78,23 @@ export default function Header({ theme, onToggleTheme, lang, onChangeLang }: Hea
             >
               EN
             </button>
+            <button
+              type="button"
+              onClick={() => onChangeLang('id')}
+              aria-pressed={lang === 'id'}
+              aria-label="Bahasa Indonesia"
+              className={`inline-flex min-h-8 items-center justify-center rounded-md px-2.5 py-1 text-xs font-semibold transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 whitespace-nowrap shrink-0 ${
+                lang === 'id'
+                  ? 'bg-blue-600 text-white'
+                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
+              }`}
+            >
+              ID
+            </button>
           </div>
 
           <a
-            href="#kontak"
+            href="#contact"
             className="hidden md:inline-flex min-h-10 items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors duration-150 hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 whitespace-nowrap shrink-0"
           >
             {lang === 'id' ? 'Hubungi Saya' : 'Contact Me'}
@@ -116,16 +127,24 @@ export default function Header({ theme, onToggleTheme, lang, onChangeLang }: Hea
             aria-label={lang === 'id' ? 'Navigasi seluler' : 'Mobile navigation'}
             className="flex flex-col gap-1"
           >
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-white"
-              >
-                {link.label[lang]}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = activeHref === link.href;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive ? 'location' : undefined}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex min-h-11 items-center rounded-lg px-3 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-blue-50 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-white'
+                  }`}
+                >
+                  {link.label[lang]}
+                </a>
+              );
+            })}
           </nav>
 
           <div className="mt-4 flex items-center justify-between gap-3 border-t border-slate-200 pt-4 dark:border-white/10">
@@ -161,7 +180,7 @@ export default function Header({ theme, onToggleTheme, lang, onChangeLang }: Hea
             </div>
 
             <a
-              href="#kontak"
+              href="#contact"
               onClick={() => setMobileMenuOpen(false)}
               className="inline-flex min-h-11 items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 whitespace-nowrap shrink-0"
             >

@@ -14,15 +14,13 @@ export default function Footer({ theme, onToggleTheme, lang }: FooterProps) {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <a
-              href="#beranda"
+              href="#hero"
               className="font-display text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50"
             >
               {OWNER_PROFILE.fullName}
             </a>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-              {lang === 'id'
-                ? `Portofolio pribadi ${OWNER_PROFILE.fullName} — ${OWNER_PROFILE.personalTitle.id} berbasis di ${OWNER_PROFILE.location.id}.`
-                : `Personal portfolio of ${OWNER_PROFILE.fullName} — ${OWNER_PROFILE.personalTitle.en} based in ${OWNER_PROFILE.location.en}.`}
+              {OWNER_PROFILE.role[lang]} — {OWNER_PROFILE.headline[lang]}
             </p>
           </div>
 
@@ -32,23 +30,28 @@ export default function Footer({ theme, onToggleTheme, lang }: FooterProps) {
             </p>
             <ul className="mt-3 space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
               <li>
-                <a href="#beranda" className="hover:text-blue-600 dark:hover:text-blue-400">
-                  {lang === 'id' ? 'Beranda' : 'Home'}
-                </a>
-              </li>
-              <li>
-                <a href="#tentang" className="hover:text-blue-600 dark:hover:text-blue-400">
+                <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400">
                   {lang === 'id' ? 'Tentang Saya' : 'About Me'}
                 </a>
               </li>
               <li>
-                <a href="#proyek" className="hover:text-blue-600 dark:hover:text-blue-400">
-                  {lang === 'id' ? 'Proyek' : 'Projects'}
+                <a href="#leadership" className="hover:text-blue-600 dark:hover:text-blue-400">
+                  {lang === 'id' ? 'Kepemimpinan' : 'Leadership'}
                 </a>
               </li>
               <li>
-                <a href="#kontak" className="hover:text-blue-600 dark:hover:text-blue-400">
-                  {lang === 'id' ? 'Kontak' : 'Contact'}
+                <a href="#ecosystem" className="hover:text-blue-600 dark:hover:text-blue-400">
+                  {lang === 'id' ? 'Ekosistem' : 'Ecosystem'}
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400">
+                  {lang === 'id' ? 'Produk & Proyek' : 'Products & Projects'}
+                </a>
+              </li>
+              <li>
+                <a href="#journey" className="hover:text-blue-600 dark:hover:text-blue-400">
+                  {lang === 'id' ? 'Perjalanan' : 'Journey'}
                 </a>
               </li>
             </ul>
@@ -56,7 +59,7 @@ export default function Footer({ theme, onToggleTheme, lang }: FooterProps) {
 
           <div className="md:col-span-4">
             <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-              {lang === 'id' ? 'Media Sosial & Tautan' : 'Social Profiles & Links'}
+              {lang === 'id' ? 'Koneksi & Tautan' : 'Connections & Links'}
             </p>
             <ul className="mt-3 space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
               {SOCIAL_PROFILES.map((item) => (
@@ -77,7 +80,7 @@ export default function Footer({ theme, onToggleTheme, lang }: FooterProps) {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-slate-200 pt-6 text-xs text-slate-500 dark:border-white/10 dark:text-slate-400 sm:flex-row sm:items-center">
           <p>
-            © {new Date().getFullYear()} {OWNER_PROFILE.fullName}.
+            © {new Date().getFullYear()} {OWNER_PROFILE.fullName} · {OWNER_PROFILE.role[lang]}
           </p>
 
           <button

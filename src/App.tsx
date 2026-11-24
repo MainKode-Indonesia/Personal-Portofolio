@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
-import AboutAndSkills from './components/AboutAndSkills';
+import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
+import EcosystemSection from './components/EcosystemSection';
 import Footer from './components/Footer';
+import GitHubContributionsSection from './components/GitHubContributionsSection';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import JourneySection from './components/JourneySection';
+import LeadershipSection from './components/LeadershipSection';
 import ProjectGallery from './components/ProjectGallery';
 import ProjectModal from './components/ProjectModal';
 import ScrollProgress from './components/ScrollProgress';
+import TechStackSection from './components/TechStackSection';
 import type { Language, ProjectItem } from './data/projects';
 
 type ThemeMode = 'dark' | 'light';
@@ -25,16 +30,16 @@ function getInitialTheme(): ThemeMode {
 }
 
 function getInitialLang(): Language {
-  if (typeof window === 'undefined') return 'id';
+  if (typeof window === 'undefined') return 'en';
   try {
-    const saved = window.localStorage.getItem('mainkode-lang');
+    const saved = window.localStorage.getItem('naufal-portfolio-lang');
     if (saved === 'id' || saved === 'en') {
       return saved;
     }
   } catch {
-    // Fallback to Indonesian by default
+    // Default to English matching selected founder headline
   }
-  return 'id';
+  return 'en';
 }
 
 export default function App() {
@@ -60,10 +65,10 @@ export default function App() {
     document.documentElement.lang = lang;
     document.title =
       lang === 'id'
-        ? 'Muhamad Naufal Burhanuddin Balit — Portofolio Pribadi'
-        : 'Muhamad Naufal Burhanuddin Balit — Personal Portfolio';
+        ? 'Muhamad Naufal Burhanuddin Balit — Founder & CEO Nafeka'
+        : 'Muhamad Naufal Burhanuddin Balit — Founder & CEO of Nafeka';
     try {
-      window.localStorage.setItem('mainkode-lang', lang);
+      window.localStorage.setItem('naufal-portfolio-lang', lang);
     } catch {
       // Ignore storage errors in restricted contexts
     }
@@ -76,8 +81,13 @@ export default function App() {
 
       <main>
         <Hero theme={theme} onToggleTheme={setTheme} lang={lang} />
-        <AboutAndSkills lang={lang} />
+        <AboutSection lang={lang} />
+        <LeadershipSection lang={lang} />
+        <EcosystemSection lang={lang} />
         <ProjectGallery onSelectProject={setSelectedProject} lang={lang} />
+        <TechStackSection lang={lang} />
+        <GitHubContributionsSection lang={lang} />
+        <JourneySection lang={lang} />
         <ContactSection lang={lang} />
       </main>
 

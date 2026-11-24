@@ -18,7 +18,7 @@ export default function Hero({ theme, onToggleTheme, lang }: HeroProps) {
   return (
     <section
       ref={sectionRef}
-      id="beranda"
+      id="hero"
       className="border-b border-slate-200 dark:border-white/10"
     >
       <div
@@ -26,12 +26,14 @@ export default function Hero({ theme, onToggleTheme, lang }: HeroProps) {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
         }`}
       >
-        {/* Hero Utility Bar: Contextual info & Theme Mode Switch */}
+        {/* Hero Utility Bar: Role & Theme Switch */}
         <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/80 pb-5 dark:border-white/10">
           <div className="flex flex-wrap items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
-            <span>{OWNER_PROFILE.location[lang]}</span>
+            <span className="font-medium text-slate-900 dark:text-slate-200">
+              {OWNER_PROFILE.role[lang]}
+            </span>
             <span aria-hidden="true">·</span>
-            <span>{OWNER_PROFILE.personalTitle[lang]}</span>
+            <span>{OWNER_PROFILE.location[lang]}</span>
           </div>
 
           <div
@@ -68,31 +70,35 @@ export default function Hero({ theme, onToggleTheme, lang }: HeroProps) {
           </div>
         </div>
 
-        {/* Split-Screen Personal Hero */}
+        {/* Split-Screen Founder Hero */}
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="flex flex-col justify-center lg:col-span-7">
-            <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
-              {lang === 'id' ? `Halo, saya ${OWNER_PROFILE.fullName}` : `Hello, I'm ${OWNER_PROFILE.fullName}`}
+            {/* Selected Kicker & Identity */}
+            <p className="text-xs font-semibold tracking-wider text-blue-600 dark:text-blue-400 sm:text-sm">
+              {OWNER_PROFILE.kicker[lang]}
             </p>
 
-            <h1 className="mt-4 font-display text-4xl font-bold leading-[1.12] tracking-tight text-slate-900 text-balance dark:text-slate-50 sm:text-5xl lg:text-[3.25rem]">
-              {lang === 'id'
-                ? 'Merancang dan membangun produk web modern yang fungsional.'
-                : 'Designing and engineering modern, purposeful web products.'}
+            <h1 className="mt-3 font-display text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 text-balance dark:text-slate-50 sm:text-5xl lg:text-[3.5rem]">
+              {OWNER_PROFILE.headline[lang]}
             </h1>
 
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-[17px]">
-              {lang === 'id'
-                ? 'Saya adalah seorang pengembang web dan kreator digital yang berbasis di Purworejo, Indonesia. Saya berfokus membangun antarmuka yang bersih, responsif di berbagai perangkat, serta sistem web yang cepat dan mudah digunakan.'
-                : 'I am a web developer and digital creator based in Purworejo, Indonesia. I focus on crafting clean, responsive interfaces across devices and fast, reliable web systems built for everyday usability.'}
+            <p className="mt-4 font-display text-lg font-semibold text-slate-800 dark:text-slate-200 sm:text-xl">
+              {OWNER_PROFILE.fullName} —{' '}
+              <span className="text-blue-600 dark:text-blue-400">
+                {OWNER_PROFILE.role[lang]}
+              </span>
+            </p>
+
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-[17px]">
+              {OWNER_PROFILE.visionStatement[lang]}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="#tentang"
+                href="#ecosystem"
                 className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-150 hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 whitespace-nowrap shrink-0"
               >
-                <span>{lang === 'id' ? 'Kenali Saya Lebih Dekat' : 'About Me'}</span>
+                <span>{lang === 'id' ? 'Jelajahi Ekosistem' : 'Explore Ecosystem'}</span>
                 <ArrowDownRight className="h-4 w-4" aria-hidden="true" />
               </a>
 
@@ -106,15 +112,15 @@ export default function Hero({ theme, onToggleTheme, lang }: HeroProps) {
               </a>
 
               <a
-                href="#proyek"
+                href="#projects"
                 className="inline-flex min-h-11 items-center px-2 py-2 text-sm font-medium text-slate-700 underline decoration-slate-300 underline-offset-8 transition-colors duration-150 hover:text-blue-600 hover:decoration-blue-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:text-slate-200 dark:decoration-slate-700 dark:hover:text-blue-400 dark:hover:decoration-blue-400 whitespace-nowrap shrink-0"
               >
-                {lang === 'id' ? 'Lihat Proyek Utama' : 'View Featured Project'}
+                {lang === 'id' ? 'Lihat Produk & Proyek' : 'View Products & Projects'}
               </a>
             </div>
           </div>
 
-          {/* Personal Portrait */}
+          {/* Founder Portrait */}
           <div className="flex justify-center lg:col-span-5 lg:justify-end">
             <div className="relative aspect-square w-full max-w-[320px] overflow-hidden rounded-full border border-slate-200 bg-slate-900 shadow-lg dark:border-white/15 sm:max-w-[380px]">
               <MediaImage

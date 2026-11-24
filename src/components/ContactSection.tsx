@@ -1,12 +1,12 @@
 import {
   AlertCircle,
   ArrowUpRight,
-  BookOpen,
   Check,
   CheckCircle2,
   Copy,
   Github,
   Globe,
+  Linkedin,
   Mail,
   Send,
 } from 'lucide-react';
@@ -27,12 +27,12 @@ interface SubmitSuccessState {
 
 function getSocialIcon(id: string) {
   switch (id) {
+    case 'linkedin':
+      return Linkedin;
     case 'github':
       return Github;
-    case 'web':
+    case 'nafeka':
       return Globe;
-    case 'blog':
-      return BookOpen;
     default:
       return Mail;
   }
@@ -53,16 +53,16 @@ export default function ContactSection({ lang }: ContactSectionProps) {
     const cleanSubject =
       subject.trim() ||
       (lang === 'id'
-        ? `Diskusi Proyek untuk ${OWNER_PROFILE.fullName}`
-        : `Project Inquiry for ${OWNER_PROFILE.fullName}`);
+        ? `Diskusi & Kolaborasi — ${OWNER_PROFILE.fullName}`
+        : `Partnership & Product Inquiry — ${OWNER_PROFILE.fullName}`);
 
     const cleanBody = [
       lang === 'id' ? `Halo ${OWNER_PROFILE.fullName},` : `Hello ${OWNER_PROFILE.fullName},`,
       '',
       message.trim() ||
         (lang === 'id'
-          ? 'Saya tertarik berdiskusi mengenai proyek atau kolaborasi.'
-          : 'I would love to discuss a project or collaboration opportunity.'),
+          ? 'Saya tertarik berdiskusi mengenai proyek, produk digital, atau kolaborasi bersama Nafeka.'
+          : 'I would like to connect regarding a project, product, or partnership opportunity.'),
       '',
       '---',
       `${lang === 'id' ? 'Nama' : 'Name'}: ${name.trim() || '-'}`,
@@ -172,23 +172,23 @@ export default function ContactSection({ lang }: ContactSectionProps) {
   };
 
   return (
-    <section id="kontak" className="py-16 sm:py-24">
+    <section id="contact" className="py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Left Column: Direct Info & Social Profiles */}
           <div className="lg:col-span-5">
             <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
-              {lang === 'id' ? '03. Kontak & Media Sosial' : '03. Contact & Socials'}
+              {lang === 'id' ? '08. Kontak & Koneksi' : '08. Contact & Social'}
             </p>
             <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 text-balance dark:text-slate-50 sm:text-4xl">
               {lang === 'id'
-                ? 'Mari terhubung dan berdiskusi langsung.'
-                : "Let's connect and talk about your next project."}
+                ? 'Mari terhubung untuk produk, teknologi & kemitraan.'
+                : "Let's connect for products, technology & partnerships."}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
               {lang === 'id'
-                ? 'Saya terbuka untuk diskusi seputar pengembangan website, aplikasi web, kolaborasi proyek, maupun peluang kerja sama lainnya.'
-                : 'I am open to discussing web development, product engineering, project collaborations, and freelance or full-time opportunities.'}
+                ? 'Terbuka untuk diskusi seputar kemitraan produk, kolaborasi rekayasa perangkat lunak, serta koneksi profesional bersama saya dan ekosistem Nafeka.'
+                : 'Open to product partnerships, software engineering collaborations, and executive or developer connections across the Nafeka ecosystem.'}
             </p>
 
             {/* Primary Email Direct Box */}
@@ -227,7 +227,7 @@ export default function ContactSection({ lang }: ContactSectionProps) {
             {/* Social Media & Ecosystem Links */}
             <div className="mt-8">
               <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                {lang === 'id' ? 'Profil Media Sosial & Tautan' : 'Social Profiles & Links'}
+                {lang === 'id' ? 'Koneksi Profesional & Media Sosial' : 'Professional & Social Links'}
               </h3>
               <ul className="mt-3 divide-y divide-slate-200 border-y border-slate-200 dark:divide-white/10 dark:border-white/10">
                 {SOCIAL_PROFILES.map((profile) => {
@@ -393,8 +393,8 @@ export default function ContactSection({ lang }: ContactSectionProps) {
                     onChange={(e) => setSubject(e.target.value)}
                     placeholder={
                       lang === 'id'
-                        ? 'Contoh: Kolaborasi pembuatan website perusahaan'
-                        : 'e.g. Company website collaboration'
+                        ? 'Contoh: Kemitraan atau diskusi produk'
+                        : 'e.g. Product partnership or collaboration'
                     }
                     className="mt-1.5 min-h-11 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none dark:border-white/10 dark:bg-[#080B12] dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-blue-500 dark:focus:bg-[#0B101B]"
                   />
@@ -416,8 +416,8 @@ export default function ContactSection({ lang }: ContactSectionProps) {
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder={
                       lang === 'id'
-                        ? 'Ceritakan kebutuhan proyek, lini waktu, atau pertanyaan Anda...'
-                        : 'Share your project goals, timeline, or questions...'
+                        ? 'Ceritakan ide, kebutuhan proyek, atau rencana kolaborasi Anda...'
+                        : 'Share your goals, product vision, or partnership idea...'
                     }
                     className="mt-1.5 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm leading-relaxed text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none dark:border-white/10 dark:bg-[#080B12] dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-blue-500 dark:focus:bg-[#0B101B]"
                   />
