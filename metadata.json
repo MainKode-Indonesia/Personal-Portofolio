@@ -1,0 +1,6 @@
+{
+  "name": "MainKode — Portofolio & Galeri Proyek",
+  "description": "Website portofolio pribadi MainKode yang menampilkan galeri proyek digital dari ekosistem Nafeka, dilengkapi dark mode, detail studi kasus, tautan media sosial, dan formulir kontak terintegrasi email.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

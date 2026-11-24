@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: "Bricolage Grotesque", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
